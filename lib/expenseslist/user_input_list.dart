@@ -22,6 +22,7 @@ class UserInput extends StatelessWidget {
             ),
             TextField(decoration: InputDecoration(labelText: 'Amount'),
               controller: amountcontroller,
+              keyboardType: TextInputType.number,
             ),
             TextButton(onPressed: (){
               addTx(titlecontroller.text,double.parse(amountcontroller.text));

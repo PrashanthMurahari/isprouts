@@ -14,7 +14,7 @@ class Homepage extends StatelessWidget {
         title: Text('Expenses Reporting'),
         centerTitle: true,
       ),
-      body:SingleChildScrollView(child:
+      body:
         Column(
         children: <Widget> [
           Card(
@@ -22,7 +22,7 @@ class Homepage extends StatelessWidget {
         SubMainList()
     ],
     ),
-      )
+
     );
   }
 }

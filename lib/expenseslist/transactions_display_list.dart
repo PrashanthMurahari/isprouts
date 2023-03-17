@@ -8,8 +8,9 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Container(
+      height: 300,
+      child:ListView(
       children: user_transactions.map((tx){
         return Card(
           margin: EdgeInsets.all(10.0),
@@ -60,6 +61,7 @@ class TransactionList extends StatelessWidget {
 
         );
       }).toList(),
+    ),
     );
   }
 }

@@ -37,13 +37,6 @@ class MyAppstate extends State<MyApp>{
       ]
     },
     {
-      'questionText':'Whats your pet name?',
-      'answers':[
-        {'text':'Whisky','score':10},
-        {'text':'Tesla','score':0}
-      ]
-    },
-    {
       'questionText':'Whats your age?',
       'answers':[
         {'text':'25','score':0},
@@ -51,7 +44,15 @@ class MyAppstate extends State<MyApp>{
         {'text':'22','score':10},
         {'text':'20','score':0 }
       ]
-    }
+    },
+    {
+      'questionText':'Whats your pet name?',
+      'answers':[
+        {'text':'Whisky','score':10},
+        {'text':'Tesla','score':0}
+      ]
+    },
+
   ];
 
   @override
