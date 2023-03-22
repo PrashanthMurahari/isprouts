@@ -2,28 +2,30 @@ import 'package:flutter/material.dart';
 import 'quiz.dart';
 import 'result.dart';
 
-void main() =>runApp(MaterialApp(
+void main() =>runApp(const MaterialApp(
   home :MyApp()
 ));
 
 class MyApp extends StatefulWidget{
+  const MyApp({super.key});
+
   @override
-  MyAppstate createState() => MyAppstate();
+  MyAppState createState() => MyAppState();
 
 }
-class MyAppstate extends State<MyApp>{
-  var _questionindex =0;
-  var totalscore= 0;
+class MyAppState extends State<MyApp>{
+  var _questionIndex =0;
+  var totalScore= 0;
   void resetQuiz(){
     setState(() {
-      _questionindex=0;
-      totalscore=0;
+      _questionIndex=0;
+      totalScore=0;
     });
   }
-  void _answerquestion(int score){
-    totalscore+=score;
+  void _answerQuestion(int score){
+    totalScore+=score;
     setState(() {
-      _questionindex+= 1;
+      _questionIndex+= 1;
     });
 
   }
@@ -59,12 +61,12 @@ class MyAppstate extends State<MyApp>{
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: Text('My App'),
+        title: const Text('My App'),
         centerTitle: true,
       ),
-      body:_questionindex<questions.length ?
-          Quiz(questions: questions, questionindex: _questionindex, answerQuestion:_answerquestion)
-          : Result(totalscore, resetQuiz),
+      body:_questionIndex<questions.length ?
+          Quiz(questions: questions, questionIndex: _questionIndex, answerQuestion:_answerQuestion)
+          : Result(totalScore, resetQuiz),
     );
   }
 }

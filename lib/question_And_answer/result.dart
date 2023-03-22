@@ -1,34 +1,34 @@
 import 'package:flutter/material.dart';
 
 class Result extends StatelessWidget {
-  final int resultscore;
+  final int resultScore;
   final Function resetButton;
-  Result(this.resultscore, this.resetButton);
+
+  const Result(this.resultScore, this.resetButton, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child:
-      Column(
-        children: <Widget> [
-        Text('Your Score is $resultscore',
-        style: TextStyle(
-          fontSize: 40.0,
-          fontWeight: FontWeight.bold,
-
-          ),
-          ),
-          SizedBox(height: 20.0,),
-          TextButton(
-            onPressed :() =>  resetButton(),
-
-            child: Text('Restart',
-
+      child: Column(
+        children: <Widget>[
+          Text(
+            'Your Score is $resultScore',
+            style: const TextStyle(
+              fontSize: 40.0,
+              fontWeight: FontWeight.bold,
             ),
-            
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          TextButton(
+            onPressed: () => resetButton(),
+            child: const Text(
+              'Restart',
+            ),
           )
-    ],
-    ),
+        ],
+      ),
     );
   }
 }
