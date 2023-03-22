@@ -6,6 +6,6 @@ void main() =>runApp(MaterialApp(
   initialRoute: '/home',
   routes: {
     '/home':(context) => MyApp(),
-    '/dashboard':(context) => Dashboard(),
+    '/dashboard':(context) => Master(),
   },
 ));
