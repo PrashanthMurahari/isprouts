@@ -15,7 +15,7 @@ class _DashBoardState extends State<DashBoard> {
         margin: const EdgeInsets.fromLTRB(30.0, 40.0, 0.0, 20.0),
         width: double.infinity,
         height: double.infinity,
-        child: Text('Dashboard',
+        child: const Text('Dashboard',
           style:TextStyle(
             fontSize: 30.0,
             fontWeight: FontWeight.bold,

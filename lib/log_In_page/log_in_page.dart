@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LogIn extends StatefulWidget {
@@ -7,11 +8,15 @@ class LogIn extends StatefulWidget {
 }
 class _LogInState extends State<LogIn> {
   TextEditingController countryCode = TextEditingController();
+  @override
   void initState()
   {
     countryCode.text ='+91';
    super.initState();
 }
+  final TextEditingController _nameController = TextEditingController();
+  var number="";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,23 +58,41 @@ class _LogInState extends State<LogIn> {
                       ),
                       ),
                     ),
-                    const Expanded(child:  TextField(
-                      decoration: InputDecoration(
+                     Expanded(child:  TextFormField(
+                       keyboardType: TextInputType.number,
+                       onChanged: (value){
+                          number = value;
+                       },
+                      controller : _nameController,
+                      decoration: const InputDecoration(
                         border: InputBorder.none,labelText: 'Mobile Number',
                       ),
-                      keyboardType: TextInputType.number,
+
                     ),
                     ),
                   ],
                 ),
               ),
               const SizedBox(height: 30.0,),
-              Container(
+              SizedBox(
                 width: 150.0,
                 height: 40.0,
                 child: ElevatedButton(
-                    onPressed: (){
-                      Navigator.pushNamed(context, '/otp');
+                    onPressed: () async{
+                      // ignore: prefer_typing_uninitialized_variables
+
+                      await FirebaseAuth.instance.verifyPhoneNumber(
+
+                        phoneNumber: '${countryCode.text+number}',
+                        verificationCompleted:
+                            (PhoneAuthCredential credential) {},
+                        verificationFailed: (FirebaseAuthException e) {},
+                        codeSent: (String verificationId, int? resendToken) {
+                           Navigator.pushNamed(context, '/otp');                        },
+                        codeAutoRetrievalTimeout: (String verificationId) {},
+                      );
+                      // ignore: use_build_context_synchronously
+
                     },
                     child: const Text('Send the OTP',
                     )

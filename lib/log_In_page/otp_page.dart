@@ -18,7 +18,7 @@ class _OneTimePasswordState extends State<OneTimePassword> {
           onPressed: (){
             Navigator.pushNamed(context, '/login');
           },
-          icon: Icon(Icons.arrow_back_ios,color: Colors.black,),
+          icon: const Icon(Icons.arrow_back_ios,color: Colors.black,),
         ),
       ),
       body: Padding(
@@ -33,14 +33,13 @@ class _OneTimePasswordState extends State<OneTimePassword> {
 
               ),
               const SizedBox(height:30.0),
-          Pinput(
+          const Pinput(
             length: 6,
             pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
-            showCursor: true,
-            onCompleted: (pin) => print(pin),
+
           ),
               const SizedBox(height: 30.0,),
-              Container(
+              SizedBox(
                 width: 100.0,
                 height: 40.0,
                 child: ElevatedButton(
@@ -49,7 +48,7 @@ class _OneTimePasswordState extends State<OneTimePassword> {
                     },
                     child: const Text('Verify',)),
               ),
-              SizedBox(height: 20.0,),
+              const SizedBox(height: 20.0,),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -57,18 +56,15 @@ class _OneTimePasswordState extends State<OneTimePassword> {
                     TextButton(onPressed: (){
                       Navigator.pushNamed(context, '/login');
                     },
-                      child: Text('Edit Mobile Number?',
+                      child: const Text('Edit Mobile Number?',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 14.0,
-
                     ),
-
                     ),
                     ),
                   ],
                 ),
-
             ],
           ),
         ),
