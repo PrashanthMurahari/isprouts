@@ -4,29 +4,29 @@ class UserInput extends StatelessWidget {
   final Function addTx;
   final titlecontroller =TextEditingController();
   final amountcontroller = TextEditingController();
-  UserInput(this.addTx);
+  UserInput(this.addTx, {super.key});
   @override
   Widget build(BuildContext context) {
 
     return Card(
       child:
       Container(
-        padding: EdgeInsets.all(10.0),
-        margin: EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10.0),
+        margin: const EdgeInsets.all(10.0),
         color: Colors.grey[200],
         child:
         Column(
           children: <Widget> [
-            TextField(decoration: InputDecoration(labelText: 'Title'),
+            TextField(decoration: const InputDecoration(labelText: 'Title'),
               controller: titlecontroller,
             ),
-            TextField(decoration: InputDecoration(labelText: 'Amount'),
+            TextField(decoration: const InputDecoration(labelText: 'Amount'),
               controller: amountcontroller,
               keyboardType: TextInputType.number,
             ),
             TextButton(onPressed: (){
               addTx(titlecontroller.text,double.parse(amountcontroller.text));
-            }, child: Text('Add To List'))
+            }, child: const Text('Add To List'))
           ],
         ),
       ),
