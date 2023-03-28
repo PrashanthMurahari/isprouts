@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1041699964398",
+    "project_id": "initial-project-f4b64",
+    "storage_bucket": "initial-project-f4b64.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041699964398:android:f1109082bbab6a95423aff",
+        "android_client_info": {
+          "package_name": "com.first_file_1.isprouts"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041699964398-qe24qfivshko0epg3od5paqm7ta33v7q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbXpVv1aLNrmedCqpVbyz0nVb0nO3BV50"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1041699964398-qe24qfivshko0epg3od5paqm7ta33v7q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
