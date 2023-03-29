@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:country_picker/country_picker.dart';
-import 'package:isprouts/log_In_page/otp_page.dart';
-
+import 'package:isprouts/Isprout_app/Log_in/otp_page.dart';
 class LogIn extends StatefulWidget {
   const LogIn({super.key});
   @override
