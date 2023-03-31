@@ -40,8 +40,7 @@ dependencies:
   image_picker: ^0.8.7
   image_picker_web: ^3.0.0+1
   cloud_firestore:
-
-
+  fl_chart: ^0.61.0
 
 
   # The following adds the Cupertino Icons font to your application.
