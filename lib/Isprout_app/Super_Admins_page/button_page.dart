@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 class ButtonCard extends StatelessWidget {
   final String title;
   final Function onTap;
-
   const ButtonCard({super.key, required this.title, required this.onTap});
-
   @override
   Widget build(BuildContext context) {
     return InkWell(
