@@ -29,7 +29,8 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   firebase_auth:
-  firebase_core: ^2.8.0
+  firebase_core:
+  cloud_firestore:
   country_picker: ^2.0.20
   flutter:
     sdk: flutter
@@ -39,8 +40,9 @@ dependencies:
   file_picker: ^5.2.6
   image_picker: ^0.8.7
   image_picker_web: ^3.0.0+1
-  cloud_firestore:
+  charts_flutter_new: ^0.12.0
   fl_chart: ^0.61.0
+  pie_chart: ^5.3.2
 
 
   # The following adds the Cupertino Icons font to your application.

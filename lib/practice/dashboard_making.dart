@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-void main() =>runApp(const MaterialApp(
-  debugShowCheckedModeBanner: false,
-  home: DashBoardMaking(),
-));
+
+void main() => runApp(const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: DashBoardMaking(),
+    ));
 
 class DashBoardMaking extends StatefulWidget {
   const DashBoardMaking({Key? key}) : super(key: key);
@@ -10,151 +11,56 @@ class DashBoardMaking extends StatefulWidget {
   @override
   State<DashBoardMaking> createState() => _DashBoardMakingState();
 }
+
 class _DashBoardMakingState extends State<DashBoardMaking> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(
-        title: const Text('Dashboard',
-        style: TextStyle(
-          color: Colors.black,
-        ),),
+      appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-      ),
-      body: Column(
-        children: [
-          SingleChildScrollView(
-            child: Container(
-              padding: const EdgeInsets.fromLTRB(10, 20, 20, 30),
-              width: double.infinity,
-              color: Colors.grey[200],
-              child: Wrap(
-                children: [
-
-                  Container(
-                    height: 100,
-                    width: 50,
-                    padding: EdgeInsets.all(10),
-                    margin: const EdgeInsets.all(10),
-                    color: Colors.white,
-                    child: Text('Area',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),),
+        title: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'Dashboard',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold),
+              ),
+              Row(
+                children: const [
+                  Icon(
+                    Icons.notifications_none,
+                    color: Colors.black,
+                    size: 14,
                   ),
-                  Container(
-                    height: 100,
-                    width: 50,
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.all(10),
-                    color: Colors.white,
-                    child: Text('Area',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),),
+                  SizedBox(
+                    width: 5,
                   ),
-                  Container(
-                    height: 100,
-                    width: 200,
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.all(10),
-                    color: Colors.white,
-                    child: Text('Area',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),),
+                  Icon(
+                    Icons.person,
+                    color: Colors.black,
+                    size: 14,
                   ),
-                  Container(
-                    height: 100,
-                    width: 200,
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.all(10),
-                    color: Colors.white,
-                    child: Text('Area',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),),
+                  SizedBox(
+                    width: 5,
                   ),
-                  Container(
-                    height: 100,
-                    width: 200,
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.all(10),
-                    color: Colors.white,
-                    child: Text('Area'),
-                  ),
-                  Container(
-                    height: 100,
-                    width: 200,
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.all(10),
-                    color: Colors.white,
-                    child: Text('Area'),
-                  ),
-                  Container(
-                    height: 100,
-                    width: 200,
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.all(10),
-                    color: Colors.white,
-                    child: Text('Area'),
-                  ),
-                  Container(
-                    height: 100,
-                    width: 200,
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.all(10),
-                    color: Colors.white,
-                    child: Text('Area'),
-                  ),
-                  Container(
-                    height: 100,
-                    width: 200,
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.all(10),
-                    color: Colors.white,
-                    child: Text('Area'),
-                  ),
-                  Container(
-                    height: 100,
-                    width: 200,
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.all(10),
-                    color: Colors.white,
-                    child: Text('Area'),
-                  ),
-                  Container(
-                    height: 100,
-                    width: 100,
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.all(10),
-                    color: Colors.white,
-                    child: Text('Area'),
-                  ),Container(
-                    height: 100,
-                    width: 100,
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.all(10),
-                    color: Colors.white,
-                    child: Text('Area'),
-                  ),
-                  Container(
-                    height: 100,
-                    width: 100,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                    ),
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.all(10),
-                    child: Text('Area',
-                    textAlign: TextAlign.center,),
+                  Text(
+                    'Name',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold),
                   ),
                 ],
               )
-            ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

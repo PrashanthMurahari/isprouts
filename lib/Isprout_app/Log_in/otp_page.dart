@@ -50,7 +50,6 @@ class _OneTimePasswordState extends State<OneTimePassword> {
                         if (widget.userNumber=='1234567890' && (oneTimePassword.length==6 && oneTimePassword.text =='123456')){
                           Navigator.pushNamed(context, '/dashboard');
                         }
-
                       },
                       child: const Text(
                         'Verify',
