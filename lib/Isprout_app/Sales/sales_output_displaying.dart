@@ -1,17 +1,7 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:isprouts/Isprout_app/Sales/sales_crud_operations.dart';
 import 'package:isprouts/Isprout_app/Sales/sales_model.dart';
 import 'package:isprouts/Isprout_app/Sales/sales_page.dart';
-import '../../firebase_options.dart';
-
-void main() async{
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: SalesMainPage(),
-  ));
-}
 
 class SalesMainPage extends StatefulWidget {
   const SalesMainPage({Key? key}) : super(key: key);
@@ -90,9 +80,9 @@ class _SalesMainPageState extends State<SalesMainPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          showDialog(context: context, builder: (_)=>const SalesApp());
+          showDialog(context: context, builder: (_) => const SalesApp());
         },
-         child:const Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }

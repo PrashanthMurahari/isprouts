@@ -7,6 +7,8 @@ import 'package:isprouts/Isprout_app/Super_Admins_page/pages/private_office_page
 import 'package:isprouts/Isprout_app/Super_Admins_page/pages/serviceRequest_page.dart';
 import 'package:isprouts/Isprout_app/Super_Admins_page/main_dashboard.dart';
 
+import '../Sales/sales_output_displaying.dart';
+
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({Key? key}) : super(key: key);
 
@@ -74,7 +76,9 @@ class MyDrawerState extends State<DrawerWidget> {
             children: [
               ListTile(
                 title: const Text('Leads'),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const SalesMainPage()));
+                },
               ),
               ListTile(
                 title: const Text('Broker Fee'),
