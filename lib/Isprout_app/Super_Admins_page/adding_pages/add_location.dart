@@ -42,7 +42,7 @@ class AddLocationState extends BasePageState<AddLocation> {
           ElevatedButton(
             child: const Text('Add'),
             onPressed: () {
-              crud.addLocation(LocationModel(
+                crud.addLocation(LocationModel(
                   locationId: _idController.text,
                   locationName: _nameController.text,
                   state: _stateController.text,

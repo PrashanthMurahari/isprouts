@@ -26,7 +26,7 @@ class Crud {
   FirebaseFirestore.instance.collection('Locations');
 
   Future<void> addLocation(LocationModel location) {
-    return _locationsCollection.add(location.toJson());
+    return _locationsCollection.doc(location.locationId).set(location.toJson());
   }
 
   Stream<List<LocationModel>> getLocations() {
