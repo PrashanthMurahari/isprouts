@@ -1,9 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:isprouts/practice/sales_crud_operations.dart';
-import 'package:isprouts/practice/sales_model.dart';
-import 'package:isprouts/practice/sales_page.dart';
-import '../firebase_options.dart';
+import 'package:isprouts/Isprout_app/Sales/sales_crud_operations.dart';
+import 'package:isprouts/Isprout_app/Sales/sales_model.dart';
+import 'package:isprouts/Isprout_app/Sales/sales_page.dart';
+import '../../firebase_options.dart';
 
 void main() async{
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);

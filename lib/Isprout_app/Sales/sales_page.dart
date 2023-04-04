@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:isprouts/practice/sales_input_method.dart';
-import 'package:isprouts/practice/sales_model.dart';
-import 'package:isprouts/practice/sales_crud_operations.dart';
+import 'package:isprouts/Isprout_app/Sales/sales_input_method.dart';
+import 'package:isprouts/Isprout_app/Sales/sales_model.dart';
+import 'package:isprouts/Isprout_app/Sales/sales_crud_operations.dart';
 class SalesApp extends StatefulWidget {
   const SalesApp({Key? key}) : super(key: key);
 

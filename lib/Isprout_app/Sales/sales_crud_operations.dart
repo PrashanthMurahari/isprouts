@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:isprouts/practice/sales_model.dart';
+import 'package:isprouts/Isprout_app/Sales/sales_model.dart';
 
 class SalesDao{
   final CollectionReference _salesCollection =
