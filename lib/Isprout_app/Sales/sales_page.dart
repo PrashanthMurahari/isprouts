@@ -39,7 +39,7 @@ class SalesAppState extends SalesInputPage<SalesApp> {
           icon:const Icon(Icons.arrow_back_ios,color: Colors.black,),
         ),
         title: const Text(
-          'Sales page',
+          'New Lead',
           style: TextStyle(
             color: Colors.black,
           ),

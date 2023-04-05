@@ -1,10 +1,20 @@
-import 'package:isprouts/Isprout_app/Super_Admins_page/button_page.dart';
-import 'package:isprouts/Isprout_app/Super_Admins_page/drawer_page.dart';
 import 'package:flutter/material.dart';
+import '../Isprout_app/Super_Admins_page/button_page.dart';
+import '../Isprout_app/Super_Admins_page/drawer_page.dart';
 
-class DashBoard extends StatelessWidget {
-  const DashBoard({super.key});
+void main() => runApp(const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: OperationalDashboard(),
+    ));
 
+class OperationalDashboard extends StatefulWidget {
+  const OperationalDashboard({Key? key}) : super(key: key);
+
+  @override
+  State<OperationalDashboard> createState() => _OperationalDashboardState();
+}
+
+class _OperationalDashboardState extends State<OperationalDashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +27,7 @@ class DashBoard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
-                'Dashboard',
+                'Operational Dashboard',
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 25,
@@ -63,63 +73,23 @@ class DashBoard extends StatelessWidget {
           child: Wrap(
             children: <Widget>[
               ButtonCard(
-                title: 'Area\n ',
+                title: 'SR Previous ',
                 onTap: () {},
               ),
               ButtonCard(
-                title: 'Location/Center\n ',
+                title: 'New SR ',
                 onTap: () {},
               ),
               ButtonCard(
-                title: 'Workstations',
+                title: 'SR Closed',
                 onTap: () {},
               ),
               ButtonCard(
-                title: 'Potential Revenue',
+                title: 'Total SR',
                 onTap: () {},
               ),
               ButtonCard(
-                title: 'Employees',
-                onTap: () {},
-              ),
-              ButtonCard(
-                title: 'Revenue',
-                onTap: () {},
-              ),
-              ButtonCard(
-                title: 'Expenses',
-                onTap: () {},
-              ),
-              ButtonCard(
-                title: 'Occupancy',
-                onTap: () {},
-              ),
-              ButtonCard(
-                title: 'Clients',
-                onTap: () {},
-              ),
-              ButtonCard(
-                title: 'Happiness Index',
-                onTap: () {},
-              ),
-              ButtonCard(
-                title: 'Service Request',
-                onTap: () {},
-              ),
-              ButtonCard(
-                title: 'Conf.Bookings',
-                onTap: () {},
-              ),
-              ButtonCard(
-                title: 'Leads',
-                onTap: () {},
-              ),
-              ButtonCard(
-                title: 'Lead PipeLine',
-                onTap: () {},
-              ),
-              ButtonCard(
-                title: 'Lead Closed',
+                title: 'SR Beyond SLA',
                 onTap: () {},
               ),
             ],

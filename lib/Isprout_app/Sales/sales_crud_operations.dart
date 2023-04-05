@@ -8,6 +8,10 @@ class SalesDao{
   Future<void> addSales(SalesModel sales) {
     return _salesCollection.doc(sales.leadId).set(sales.toJson());
   }
+  Future<SalesModel> getAhuId(String ahuId) async {
+    return SalesModel.fromSnapshot(
+        await _salesCollection.doc(ahuId).get());
+  }
 
   Stream<List<SalesModel>> getSales() {
     return _salesCollection.snapshots().map((snapshot) =>

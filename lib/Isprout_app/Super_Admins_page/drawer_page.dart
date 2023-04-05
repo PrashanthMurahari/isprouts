@@ -42,11 +42,15 @@ class MyDrawerState extends State<DrawerWidget> {
           ),
           ExpansionTile(
             title: const Text('Operations'),
+
             children: [
               ListTile(
                 title: const Text('ServiceRequest'),
                 onTap: () {
-                  Navigator.push(context,MaterialPageRoute(builder: (context)=>const ServiceRequestPage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ServiceRequestPage()));
                 },
               ),
               ListTile(
@@ -77,7 +81,10 @@ class MyDrawerState extends State<DrawerWidget> {
               ListTile(
                 title: const Text('Leads'),
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const SalesMainPage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SalesMainPage()));
                 },
               ),
               ListTile(
@@ -92,13 +99,19 @@ class MyDrawerState extends State<DrawerWidget> {
               ListTile(
                 title: const Text('Locations'),
                 onTap: () {
-                  Navigator.push(context,MaterialPageRoute(builder: (context)=>(const LocationPage())));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => (const LocationPage())));
                 },
               ),
               ListTile(
                 title: const Text('Centers'),
                 onTap: () {
-                  Navigator.push(context,MaterialPageRoute(builder: (context)=>(const CenterPage())));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => (const CenterPage())));
                 },
               ),
               ListTile(
@@ -112,7 +125,10 @@ class MyDrawerState extends State<DrawerWidget> {
               ListTile(
                 title: const Text('Clients'),
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const ClientPage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ClientPage()));
                 },
               ),
               ListTile(
@@ -122,13 +138,19 @@ class MyDrawerState extends State<DrawerWidget> {
               ListTile(
                 title: const Text('private offices'),
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const PrivateOfficePage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const PrivateOfficePage()));
                 },
               ),
               ListTile(
                 title: const Text('Conference Rooms'),
                 onTap: () {
-                  Navigator.push(context,MaterialPageRoute(builder: (context)=>const ConferenceRoomPage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ConferenceRoomPage()));
                 },
               ),
               ListTile(
