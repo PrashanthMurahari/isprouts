@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 void main() => runApp(const MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -14,12 +15,13 @@ class DateTimePicker extends StatefulWidget {
 
 class _DateTimePickerState extends State<DateTimePicker> {
   DateTimeRange dateRange =
-      DateTimeRange(start: DateTime(2010, 01, 01), end: DateTime(2100, 12, 31));
+      DateTimeRange(start: DateTime(2000, 01, 01), end: DateTime(2023, 12, 30));
 
   @override
   Widget build(BuildContext context) {
     final start = dateRange.start;
     final end = dateRange.end;
+    final difference = dateRange.duration;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -40,22 +42,36 @@ class _DateTimePickerState extends State<DateTimePicker> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
-                    child: Text('${start.year}-${start.month}-${start.day}'),
+                    onPressed: pickDateRange,
+                    child: Text(DateFormat('yyyy-MM-dd').format(start)),
                   ),
                   const SizedBox(
                     width: 5,
                   ),
                   ElevatedButton(
-                    onPressed: () {},
-                    child: Text('${end.year}-${end.month}-${end.day}'),
+                    onPressed: pickDateRange,
+                    child: Text(DateFormat('yyyy-MM-dd').format(end)),
                   ),
                 ],
               ),
-            )
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Text('Duration: ${difference.inHours} hours'),
           ],
         ),
       ),
     );
+  }
+
+  Future pickDateRange() async {
+    DateTimeRange? newDateRange = await showDateRangePicker(
+        context: context,
+        initialDateRange: dateRange,
+        firstDate: DateTime(2000),
+        lastDate: DateTime(2025));
+    if (newDateRange == null) return;
+    setState(() => dateRange = newDateRange);
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-abstract class SalesInputPage<T> extends State{
+abstract class InputPage<T> extends State{
   Widget textField(TextEditingController controller, String text){
     return
        TextFormField(

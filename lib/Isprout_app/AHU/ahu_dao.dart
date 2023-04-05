@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:isprouts/practice/ahu_model.dart';
+import 'package:isprouts/Isprout_app/AHU/ahu_model.dart';
 
 class AhuDao {
   final CollectionReference _ahuCollection =
@@ -14,7 +14,7 @@ class AhuDao {
         await _ahuCollection.doc(ahuId).get());
   }
 
-  Stream<List<AhuManagement>> getCenter() {
+  Stream<List<AhuManagement>> getAhu() {
     return _ahuCollection.snapshots().map((snapshot) =>
         snapshot.docs.map((doc) => AhuManagement.fromSnapshot(doc)).toList());
   }

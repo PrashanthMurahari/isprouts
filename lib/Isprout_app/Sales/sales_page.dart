@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:isprouts/Isprout_app/Sales/sales_input_method.dart';
+import 'package:isprouts/Isprout_app/Sales/input_method.dart';
 import 'package:isprouts/Isprout_app/Sales/sales_model.dart';
 import 'package:isprouts/Isprout_app/Sales/sales_crud_operations.dart';
 class SalesApp extends StatefulWidget {
@@ -9,7 +9,7 @@ class SalesApp extends StatefulWidget {
   SalesAppState createState() => SalesAppState();
 }
 
-class SalesAppState extends SalesInputPage<SalesApp> {
+class SalesAppState extends InputPage<SalesApp> {
   final TextEditingController _leadIdController = TextEditingController();
   final TextEditingController _clientNameController = TextEditingController();
   final TextEditingController _brokerIdController = TextEditingController();

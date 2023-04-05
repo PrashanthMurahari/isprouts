@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:isprouts/practice/broker_firm_model.dart';
+import 'package:isprouts/Isprout_app/Broker_Firm/broker_firm_model.dart';
 
 class BrokerFirmDao {
   final CollectionReference _brokerFirmCollection =

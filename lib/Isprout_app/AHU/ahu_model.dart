@@ -5,11 +5,15 @@ class AhuManagement {
   final String ahuId;
   final String centreId;
   final String ahuOperationalDays;
+  final String startDate;
+  final String startTime;
 
   AhuManagement({
     required this.ahuId,
     required this.centreId,
     required this.ahuOperationalDays,
+    required this.startDate,
+    required this.startTime,
   });
 
   factory AhuManagement.fromSnapshot(DocumentSnapshot snap){
@@ -17,12 +21,17 @@ class AhuManagement {
     return AhuManagement(
         ahuId: snapshot['ahuId'],
         centreId: snapshot['centreId'],
-        ahuOperationalDays: snapshot['ahuOperationalDays']);
+        ahuOperationalDays: snapshot['ahuOperationalDays'],
+        startDate: snapshot['startDate'],
+      startTime: snapshot['startTime']
+    );
   }
 
   Map<String, dynamic>toJson()=>{
     "ahuId":ahuId,
     "centreId":centreId,
     "ahuOperationalDays":ahuOperationalDays,
+    "startDate":startDate,
+    "startTime":startTime
   };
 }
