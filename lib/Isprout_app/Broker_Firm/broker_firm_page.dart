@@ -83,7 +83,7 @@ class BrokerFirmPageState extends InputPage<BrokerFirmPage> {
                           contactNumber: _contactNumberController.text,
                         ));
                       },
-                      child: const Text('Add AHU'))
+                      child: const Text('Add Broker Firm'))
                 ],
               ),
             ),

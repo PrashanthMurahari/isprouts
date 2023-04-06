@@ -33,7 +33,7 @@ class AhuPageState extends InputPage<AhuPage> {
           ),
         ),
         title: const Text(
-          'New Lead',
+          'New AHU',
           style: TextStyle(
             color: Colors.black,
           ),
