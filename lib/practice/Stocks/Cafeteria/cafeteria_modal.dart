@@ -6,6 +6,7 @@ class CafeteriaModal {
   final String stockUsed;
   final String stockRemaining;
   final String stockNeeded;
+  final String dateTime;
 
   CafeteriaModal({
     required this.stockName,
@@ -13,23 +14,26 @@ class CafeteriaModal {
     required this.stockUsed,
     required this.stockRemaining,
     required this.stockNeeded,
+    required this.dateTime,
   });
 
   factory CafeteriaModal.fromSnapshot(DocumentSnapshot snap) {
     var snapshot = snap.data() as Map<String, dynamic>;
     return CafeteriaModal(
-        stockName: snapshot["ahuId"],
-        stockPresent: snapshot["ahuName"],
-        stockUsed: snapshot["centerName"],
-        stockRemaining: snapshot["floorNumber"],
-        stockNeeded: snapshot["ahuOperationalDays"]);
+        stockName: snapshot["stockName"],
+        stockPresent: snapshot["stockPresent"],
+        stockUsed: snapshot["stockUsed"],
+        stockRemaining: snapshot["stockRemaining"],
+        stockNeeded: snapshot["stockNeeded"],
+        dateTime: snapshot['dateTime']);
   }
 
   Map<String, dynamic> toJson() => {
-        "ahuId": stockName,
-        "ahuName": stockPresent,
-        "centerName": stockUsed,
-        "floorNumber": stockRemaining,
-        "ahuOperationalDays": stockNeeded,
+        "stockName": stockName,
+        "stockPresent": stockPresent,
+        "stockUsed": stockUsed,
+        "stockRemaining": stockRemaining,
+        "stockNeeded": stockNeeded,
+        "dateTime": dateTime
       };
 }

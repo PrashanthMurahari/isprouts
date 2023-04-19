@@ -91,6 +91,10 @@ class _CafeteriaState extends State<Cafeteria> {
                                 label: Text('Stock Needed',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold))),
+                            DataColumn(
+                                label: Text('Date',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold))),
                           ],
                           rows: cafeteriaData
                               .map((e) => DataRow(cells: [
@@ -103,6 +107,7 @@ class _CafeteriaState extends State<Cafeteria> {
                                     DataCell(Text(e.stockUsed)),
                                     DataCell(Text(e.stockRemaining)),
                                     DataCell(Text(e.stockNeeded)),
+                                    DataCell(Text(e.dateTime)),
                                   ]))
                               .toList(),
                         ),
