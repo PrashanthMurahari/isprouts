@@ -69,7 +69,7 @@ class _DateTimePickerState extends State<DateTimePicker> {
     DateTimeRange? newDateRange = await showDateRangePicker(
         context: context,
         initialDateRange: dateRange,
-        firstDate: DateTime(2000),
+        firstDate: DateTime(1999),
         lastDate: DateTime(2025));
     if (newDateRange == null) return;
     setState(() => dateRange = newDateRange);
