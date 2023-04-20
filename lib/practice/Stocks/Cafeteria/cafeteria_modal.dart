@@ -3,37 +3,38 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class CafeteriaModal {
   final String stockName;
   final String stockPresent;
-  final String stockUsed;
-  final String stockRemaining;
-  final String stockNeeded;
-  final String dateTime;
+  final String stockIn;
+  final String stockOut;
+  final String closingStock;
+  final String reorderRequired;
 
   CafeteriaModal({
     required this.stockName,
     required this.stockPresent,
-    required this.stockUsed,
-    required this.stockRemaining,
-    required this.stockNeeded,
-    required this.dateTime,
+    required this.stockIn,
+    required this.stockOut,
+    required this.closingStock,
+    required this.reorderRequired,
   });
 
   factory CafeteriaModal.fromSnapshot(DocumentSnapshot snap) {
     var snapshot = snap.data() as Map<String, dynamic>;
     return CafeteriaModal(
-        stockName: snapshot["stockName"],
-        stockPresent: snapshot["stockPresent"],
-        stockUsed: snapshot["stockUsed"],
-        stockRemaining: snapshot["stockRemaining"],
-        stockNeeded: snapshot["stockNeeded"],
-        dateTime: snapshot['dateTime']);
+      stockName: snapshot["stockName"],
+      stockPresent: snapshot["stockPresent"],
+      stockIn: snapshot["stockIn"],
+      stockOut: snapshot["stockOut"],
+      closingStock: snapshot["closingStock"],
+      reorderRequired: snapshot["reorderRequired"],
+    );
   }
 
   Map<String, dynamic> toJson() => {
         "stockName": stockName,
         "stockPresent": stockPresent,
-        "stockUsed": stockUsed,
-        "stockRemaining": stockRemaining,
-        "stockNeeded": stockNeeded,
-        "dateTime": dateTime
+        "stockIn": stockIn,
+        "stockOut": stockOut,
+        "closingStock": closingStock,
+        "reorderRequired": reorderRequired,
       };
 }

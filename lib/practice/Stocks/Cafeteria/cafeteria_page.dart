@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:isprouts/practice/Stocks/Cafeteria/add_cafeteria.dart';
 import 'package:isprouts/practice/Stocks/Cafeteria/cafeteria_dao.dart';
 import 'package:isprouts/practice/Stocks/Cafeteria/cafeteria_modal.dart';
+import 'package:isprouts/practice/Stocks/Cafeteria/re_order.dart';
+import 'package:isprouts/practice/Stocks/Cafeteria/stock_in.dart';
 
 class Cafeteria extends StatefulWidget {
   const Cafeteria({Key? key}) : super(key: key);
@@ -40,6 +42,63 @@ class _CafeteriaState extends State<Cafeteria> {
               color: Colors.black,
             ),
           ),
+          actions: [
+            PopupMenuButton<int>(
+              icon: const Icon(
+                Icons.more_vert,
+                color: Colors.black,
+              ),
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                    child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AddCafeteria()));
+                  },
+                  child: const Text(
+                    'New Material',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                )),
+                PopupMenuItem(
+                    child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ReOrder()));
+                  },
+                  child: const Text(
+                    'Re-Order Material',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                )),
+                PopupMenuItem(
+                    child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const StockIn()));
+                  },
+                  child: const Text(
+                    'New Stock',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                )),
+                PopupMenuItem(
+                    child: TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'Stock Used',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                )),
+              ],
+            )
+          ],
         ),
         body: StreamBuilder<List<CafeteriaModal>>(
             stream: _cafeteriaStream,
@@ -71,43 +130,21 @@ class _CafeteriaState extends State<Cafeteria> {
                         scrollDirection: Axis.horizontal,
                         child: DataTable(
                           columns: const [
-                            DataColumn(
-                                label: Text('Material Name',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold))),
-                            DataColumn(
-                                label: Text('Present Stock',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold))),
-                            DataColumn(
-                                label: Text('Stock used',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold))),
-                            DataColumn(
-                                label: Text('Remaining Stock',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold))),
-                            DataColumn(
-                                label: Text('Stock Needed',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold))),
-                            DataColumn(
-                                label: Text('Date',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold))),
+                            DataColumn(label: Text('Material Name')),
+                            DataColumn(label: Text('Present Stock')),
+                            DataColumn(label: Text('In')),
+                            DataColumn(label: Text('Out')),
+                            DataColumn(label: Text('Closing Stock')),
+                            DataColumn(label: Text('ReOrder Required')),
                           ],
                           rows: cafeteriaData
                               .map((e) => DataRow(cells: [
-                                    DataCell(Text(
-                                      e.stockName,
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.bold),
-                                    )),
+                                    DataCell(Text(e.stockName)),
                                     DataCell(Text(e.stockPresent)),
-                                    DataCell(Text(e.stockUsed)),
-                                    DataCell(Text(e.stockRemaining)),
-                                    DataCell(Text(e.stockNeeded)),
-                                    DataCell(Text(e.dateTime)),
+                                    DataCell(Text(e.stockIn)),
+                                    DataCell(Text(e.stockOut)),
+                                    DataCell(Text(e.closingStock)),
+                                    DataCell(Text(e.reorderRequired)),
                                   ]))
                               .toList(),
                         ),
@@ -117,5 +154,24 @@ class _CafeteriaState extends State<Cafeteria> {
                 ),
               );
             }));
+  }
+
+  void buttons() {
+    Container(
+      padding: const EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
+      child: Column(
+        children: [
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const AddCafeteria()));
+              },
+              child: const Text('New Material')),
+        ],
+      ),
+    );
   }
 }

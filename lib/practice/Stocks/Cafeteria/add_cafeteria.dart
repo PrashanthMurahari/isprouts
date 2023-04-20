@@ -13,25 +13,12 @@ class AddCafeteria extends StatefulWidget {
 class _AddCafeteriaState extends State<AddCafeteria> {
   final TextEditingController _stockName = TextEditingController();
   final TextEditingController _stockPresent = TextEditingController();
-  final TextEditingController _stockUsed = TextEditingController();
-  final TextEditingController _stockRemaining = TextEditingController();
-  final TextEditingController _stockNeeded = TextEditingController();
+  final TextEditingController _stockIn = TextEditingController();
+  final TextEditingController _stockOut = TextEditingController();
+  final TextEditingController _closingStock = TextEditingController();
+  final TextEditingController _reOrderRequired = TextEditingController();
 
   final CafeteriaDao _dao = CafeteriaDao();
-  DateTime _date = DateTime.now();
-
-  void _showPicker() {
-    showDatePicker(
-            context: context,
-            initialDate: DateTime.now(),
-            firstDate: DateTime(2000),
-            lastDate: DateTime(2025))
-        .then((value) {
-      setState(() {
-        _date = value!;
-      });
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +52,7 @@ class _AddCafeteriaState extends State<AddCafeteria> {
                 TextFormField(
                   controller: _stockName,
                   decoration: InputDecoration(
-                    hintText: 'Material Name',
+                    hintText: 'Stock Name',
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     focusedBorder: OutlineInputBorder(
@@ -83,9 +70,9 @@ class _AddCafeteriaState extends State<AddCafeteria> {
                   ),
                 ),
                 TextFormField(
-                  controller: _stockUsed,
+                  controller: _stockIn,
                   decoration: InputDecoration(
-                    hintText: 'Stock Used',
+                    hintText: 'Stock In',
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     focusedBorder: OutlineInputBorder(
@@ -93,7 +80,17 @@ class _AddCafeteriaState extends State<AddCafeteria> {
                   ),
                 ),
                 TextFormField(
-                  controller: _stockRemaining,
+                  controller: _stockOut,
+                  decoration: InputDecoration(
+                    hintText: 'Stock Out',
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                  ),
+                ),
+                TextFormField(
+                  controller: _closingStock,
                   decoration: InputDecoration(
                     hintText: 'Remaining Stock',
                     enabledBorder: OutlineInputBorder(
@@ -102,10 +99,11 @@ class _AddCafeteriaState extends State<AddCafeteria> {
                         borderRadius: BorderRadius.circular(10)),
                   ),
                 ),
+
                 TextFormField(
-                  controller: _stockNeeded,
+                  controller: _reOrderRequired,
                   decoration: InputDecoration(
-                    hintText: 'Stock Needed',
+                    hintText: 'ReOrder Required',
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     focusedBorder: OutlineInputBorder(
@@ -115,12 +113,8 @@ class _AddCafeteriaState extends State<AddCafeteria> {
                 const SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(
-                    onPressed: () {
-                      _showPicker();
-                    },
-                    child: Text(DateFormat('yyyy/MM/dd').format(_date))),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
@@ -134,12 +128,13 @@ class _AddCafeteriaState extends State<AddCafeteria> {
                         onPressed: () {
                           Navigator.pop(context);
                           _dao.addMaterial(CafeteriaModal(
-                              stockName: _stockName.text,
-                              stockPresent: _stockPresent.text,
-                              stockUsed: _stockUsed.text,
-                              stockRemaining: _stockRemaining.text,
-                              stockNeeded: _stockNeeded.text,
-                          dateTime: DateFormat('yyyy/MM/dd').format(_date)));
+                            stockName: _stockName.text,
+                            stockPresent: _stockPresent.text,
+                            stockIn: _stockIn.text,
+                            stockOut: _stockOut.text,
+                            closingStock: _closingStock.text,
+                            reorderRequired: _reOrderRequired.text,
+                          ));
                         },
                         child: const Padding(
                           padding: EdgeInsets.fromLTRB(10, 5, 10, 5),

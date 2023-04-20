@@ -9,9 +9,12 @@ import '../../firebase_options.dart';
 
 void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const MaterialApp(
+  runApp( MaterialApp(
+    theme: ThemeData.light().copyWith(
+      unselectedWidgetColor: Colors.red
+    ),
     debugShowCheckedModeBanner: false,
-    home: Stocks(),
+    home:const Stocks(),
   ));
 }
   
