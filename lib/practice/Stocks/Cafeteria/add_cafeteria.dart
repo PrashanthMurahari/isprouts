@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:isprouts/practice/Stocks/Cafeteria/cafeteria_dao.dart';
 import 'package:isprouts/practice/Stocks/Cafeteria/cafeteria_modal.dart';
 
@@ -12,13 +11,24 @@ class AddCafeteria extends StatefulWidget {
 
 class _AddCafeteriaState extends State<AddCafeteria> {
   final TextEditingController _stockName = TextEditingController();
-  final TextEditingController _stockPresent = TextEditingController();
-  final TextEditingController _stockIn = TextEditingController();
-  final TextEditingController _stockOut = TextEditingController();
-  final TextEditingController _closingStock = TextEditingController();
   final TextEditingController _reOrderRequired = TextEditingController();
+  // final TextEditingValue _stockPresent =const TextEditingValue();
+  // final TextEditingValue _stockIn =const TextEditingValue();
+  // final TextEditingValue _stockOut =const TextEditingValue();
 
+  //final TextEditingController _closingStock = TextEditingController();
+
+  double _closingStock = 0;
   final CafeteriaDao _dao = CafeteriaDao();
+  double _stockPresent = 0;
+  double _stockIn = 0;
+  double _stockOut = 0;
+
+  void calculating() {
+    if (_stockPresent != null && _stockIn != null && _stockOut != null) {
+      _closingStock = ((_stockPresent + _stockIn) - _stockOut);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +70,14 @@ class _AddCafeteriaState extends State<AddCafeteria> {
                   ),
                 ),
                 TextFormField(
-                  controller: _stockPresent,
+                  // controller: TextEditingController.fromValue(_stockPresent),
+                  onChanged: (value) {
+                    if (value.isEmpty) {
+                      setState(() => _stockPresent = 0);
+                    } else {
+                      setState(() => _stockPresent = double.parse(value));
+                    }
+                  },
                   decoration: InputDecoration(
                     hintText: 'Present Stock',
                     enabledBorder: OutlineInputBorder(
@@ -70,7 +87,14 @@ class _AddCafeteriaState extends State<AddCafeteria> {
                   ),
                 ),
                 TextFormField(
-                  controller: _stockIn,
+                  //controller: TextEditingController.fromValue(_stockIn),
+                  onChanged: (value) {
+                    if (value.isEmpty) {
+                      setState(() => _stockIn = 0);
+                    } else {
+                      setState(() => _stockIn = double.parse(value));
+                    }
+                  },
                   decoration: InputDecoration(
                     hintText: 'Stock In',
                     enabledBorder: OutlineInputBorder(
@@ -80,7 +104,14 @@ class _AddCafeteriaState extends State<AddCafeteria> {
                   ),
                 ),
                 TextFormField(
-                  controller: _stockOut,
+                  //controller: TextEditingController.fromValue(_stockOut),
+                  onChanged: (value) {
+                    if (value.isEmpty) {
+                      setState(() => _stockOut = 0);
+                    } else {
+                      setState(() => _stockOut = double.parse(value));
+                    }
+                  },
                   decoration: InputDecoration(
                     hintText: 'Stock Out',
                     enabledBorder: OutlineInputBorder(
@@ -89,17 +120,16 @@ class _AddCafeteriaState extends State<AddCafeteria> {
                         borderRadius: BorderRadius.circular(10)),
                   ),
                 ),
-                TextFormField(
-                  controller: _closingStock,
-                  decoration: InputDecoration(
-                    hintText: 'Remaining Stock',
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                  ),
-                ),
-
+                // TextFormField(
+                //   controller: _closingStock,
+                //   decoration: InputDecoration(
+                //     hintText: 'Remaining Stock',
+                //     enabledBorder: OutlineInputBorder(
+                //         borderRadius: BorderRadius.circular(10)),
+                //     focusedBorder: OutlineInputBorder(
+                //         borderRadius: BorderRadius.circular(10)),
+                //   ),
+                // ),
                 TextFormField(
                   controller: _reOrderRequired,
                   decoration: InputDecoration(
@@ -126,13 +156,14 @@ class _AddCafeteriaState extends State<AddCafeteria> {
                           minimumSize: const Size(120, 40),
                         ),
                         onPressed: () {
+                          calculating();
                           Navigator.pop(context);
                           _dao.addMaterial(CafeteriaModal(
                             stockName: _stockName.text,
-                            stockPresent: _stockPresent.text,
-                            stockIn: _stockIn.text,
-                            stockOut: _stockOut.text,
-                            closingStock: _closingStock.text,
+                            stockPresent: '$_stockPresent',
+                            stockIn: '$_stockIn',
+                            stockOut: '$_stockOut',
+                            closingStock: '$_closingStock',
                             reorderRequired: _reOrderRequired.text,
                           ));
                         },
