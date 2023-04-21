@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:isprouts/practice/Stocks/Cafeteria/cafeteria_dao.dart';
 import 'package:isprouts/practice/Stocks/Cafeteria/cafeteria_modal.dart';
 
-class AddCafeteria extends StatefulWidget {
-  const AddCafeteria({Key? key}) : super(key: key);
+class StockRequired extends StatefulWidget {
+  const StockRequired({Key? key}) : super(key: key);
 
   @override
-  State<AddCafeteria> createState() => _AddCafeteriaState();
+  State<StockRequired> createState() => _StockRequiredState();
 }
 
-class _AddCafeteriaState extends State<AddCafeteria> {
+class _StockRequiredState extends State<StockRequired> {
   final TextEditingController _stockName = TextEditingController();
   final TextEditingController _reOrderRequired = TextEditingController();
   double _closingStock = 0;
@@ -63,27 +63,28 @@ class _AddCafeteriaState extends State<AddCafeteria> {
                         borderRadius: BorderRadius.circular(10)),
                   ),
                 ),
-                TextFormField(
-                  // controller: TextEditingController.fromValue(_stockPresent),
-                  onChanged: (value) {
-                    if (value.isEmpty) {
-                      setState(() => _stockPresent = 0);
-                    } else {
-                      setState(() => _stockPresent = double.parse(value));
-                    }
-                  },
-                  decoration: InputDecoration(
-                    hintText: 'Present Stock',
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                Visibility(
+                  visible: false,
+                  child: TextFormField(
+                    onChanged: (value) {
+                      if (value.isEmpty) {
+                        setState(() => _stockPresent = 0);
+                      } else {
+                        setState(() => _stockPresent = double.parse(value));
+                      }
+                    },
+                    decoration: InputDecoration(
+                      hintText: 'Present Stock',
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                    ),
                   ),
                 ),
                 Visibility(
                   visible: false,
                   child: TextFormField(
-                    //controller: TextEditingController.fromValue(_stockIn),
                     onChanged: (value) {
                       if (value.isEmpty) {
                         setState(() => _stockIn = 0);
@@ -103,7 +104,6 @@ class _AddCafeteriaState extends State<AddCafeteria> {
                 Visibility(
                   visible: false,
                   child: TextFormField(
-
                     onChanged: (value) {
                       if (value.isEmpty) {
                         setState(() => _stockOut = 0);
@@ -120,17 +120,14 @@ class _AddCafeteriaState extends State<AddCafeteria> {
                     ),
                   ),
                 ),
-                Visibility(
-                  visible: false,
-                  child: TextFormField(
-                    controller: _reOrderRequired,
-                    decoration: InputDecoration(
-                      hintText: 'ReOrder Required',
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                    ),
+                TextFormField(
+                  controller: _reOrderRequired,
+                  decoration: InputDecoration(
+                    hintText: 'ReOrder Required',
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)),
                   ),
                 ),
                 const SizedBox(

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:isprouts/practice/Stocks/Cafeteria/add_cafeteria.dart';
 import 'package:isprouts/practice/Stocks/Cafeteria/cafeteria_dao.dart';
 import 'package:isprouts/practice/Stocks/Cafeteria/cafeteria_modal.dart';
-import 'package:isprouts/practice/Stocks/Cafeteria/re_order.dart';
+import 'package:isprouts/practice/Stocks/Cafeteria/re_order_2.dart';
 import 'package:isprouts/practice/Stocks/Cafeteria/stock_in.dart';
+import 'package:isprouts/practice/Stocks/Cafeteria/stock_out.dart';
 
 class Cafeteria extends StatefulWidget {
   const Cafeteria({Key? key}) : super(key: key);
@@ -68,7 +69,7 @@ class _CafeteriaState extends State<Cafeteria> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const ReOrder()));
+                            builder: (context) => const StockRequired()));
                   },
                   child: const Text(
                     'Re-Order Material',
@@ -90,7 +91,12 @@ class _CafeteriaState extends State<Cafeteria> {
                 )),
                 PopupMenuItem(
                     child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const StockOut()));
+                  },
                   child: const Text(
                     'Stock Used',
                     style: TextStyle(color: Colors.black),
@@ -110,17 +116,6 @@ class _CafeteriaState extends State<Cafeteria> {
               return Center(
                 child: Column(
                   children: [
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const AddCafeteria()));
-                        },
-                        child: const Text('New Material')),
-                    const SizedBox(
-                      height: 20,
-                    ),
                     Card(
                       margin:
                           const EdgeInsets.only(left: 30, top: 30, right: 30),
@@ -130,6 +125,7 @@ class _CafeteriaState extends State<Cafeteria> {
                         scrollDirection: Axis.horizontal,
                         child: DataTable(
                           columns: const [
+                            DataColumn(label: Text('')),
                             DataColumn(label: Text('Material Name')),
                             DataColumn(label: Text('Present Stock')),
                             DataColumn(label: Text('In')),
@@ -139,6 +135,12 @@ class _CafeteriaState extends State<Cafeteria> {
                           ],
                           rows: cafeteriaData
                               .map((e) => DataRow(cells: [
+                                    DataCell(
+                                      IconButton(
+                                          onPressed: () {
+                                          },
+                                          icon: const Icon(Icons.edit)),
+                                    ),
                                     DataCell(Text(e.stockName)),
                                     DataCell(Text(e.stockPresent)),
                                     DataCell(Text(e.stockIn)),
